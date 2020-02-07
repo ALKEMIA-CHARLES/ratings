@@ -1,0 +1,51 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%block styles%}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {% endblock %}
+    <title>Ratings</title>
+</head>
+
+<body>
+    <body style="background-color: grey;">
+        <nav class="navbar navbar" style="background-color: black;">
+            <div class="container">
+                <form action="#" method="GET" class="form-inline">
+                    <input name='search' class="form-control mr-sm-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-secondary" type="submit">Search Projects</button>
+                </form>
+                <div>
+                    <a href="/"> News Feed</a>
+                </div>
+                <div>
+                    {% if request.user.is_authenticated %}
+                    <div>
+                        <a href="#"
+                            >profile</a>
+                    </div>
+                    <div>
+                        <a href="#">Upload a Project</a>
+                    </div>
+                    <div>
+                        <a href="#">Logout</a>
+                    </div>
+                    {% else %}
+                    <a href="#">Login</a>
+                    <a href="#"
+                        >Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        {%block content%}
+        {%endblock%}
+</body>

@@ -8,7 +8,7 @@ from django.dispatch import receiver
 
 
 # Create your models here.
-class project(models.Model):
+class Project(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(default="default.jpg", upload_to='pictures' )
     description = models.TextField(max_length=250)
@@ -22,12 +22,12 @@ class project(models.Model):
     @classmethod
     def search_projects_by_title(cls,search):
         return cls.objects.filter(name__icontains=search)
-class profile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default="default.jpg", upload_to='pictures')
     contact = models.EmailField(max_length=250)
 
-class repositories(models.Model):
+class Repositories(models.Model):
     title = models.EmailField(max_length=250)
     image = models.ImageField(default="deafult.jpg", upload_to='pictures')
     description = models.TextField(max_length=300)
