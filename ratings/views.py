@@ -4,10 +4,11 @@ from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from ratings.models import Profile, Project, Repositories
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # Create your views here.
 
 
-class ProjectListView(ListView):
+class ProjectListView(LoginRequiredMixin,ListView):
     model = Project
     template_name = "main/index.html"
     context_object_name = "projects"

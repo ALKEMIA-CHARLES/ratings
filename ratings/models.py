@@ -8,6 +8,29 @@ from django.dispatch import receiver
 
 
 # Create your models here.
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    print("=========================================[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]=")
+
+    if created:
+        Profile.objects.create(user=instance)
+        print("==========================================")
+
+
+@receiver(post_save, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default="default.jpg", upload_to='pictures')
+    contact = models.EmailField(max_length=250)
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+
+
 class Project(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(default="default.jpg", upload_to='pictures' )
@@ -22,10 +45,6 @@ class Project(models.Model):
     @classmethod
     def search_projects_by_title(cls,search):
         return cls.objects.filter(name__icontains=search)
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default="default.jpg", upload_to='pictures')
-    contact = models.EmailField(max_length=250)
 
 class Repositories(models.Model):
     title = models.EmailField(max_length=250)
