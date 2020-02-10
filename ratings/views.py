@@ -5,6 +5,7 @@ from ratings.models import Profile, Project, Repositories
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from ratings.forms import UserUpdateForm
 # Create your views here.
 
 
@@ -29,4 +30,13 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'main/profile.html')
+    if request.method == "POST":
+        form = UserUpdateForm(request.POST,request.FILES, instance=request.user.profile)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = UserUpdateForm(instance=request.user.profile)
+    return render(request, "main/profile.html", context={"form":form
+                                                      })
