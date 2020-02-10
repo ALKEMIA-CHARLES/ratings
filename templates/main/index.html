@@ -4,8 +4,7 @@
     {% for project in projects %}
     <div class="card">
         <div class="card-body">
-            <p><a href="#" >
-                    {{project.title}}</a></p>
+            <p><a href="{% url 'project-detail' project.id %}">{{project.title}}</a></p>
             <img src="{{project.image.url}}" />
             <p>{{project.post_date}}</p>
             <p>{{project.description}}</p>

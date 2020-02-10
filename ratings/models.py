@@ -30,7 +30,14 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+    def save(self):
+        super().save()
+        img = Image.open(self.image.path)
 
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
 class Project(models.Model):
     title = models.CharField(max_length=250)
@@ -38,14 +45,14 @@ class Project(models.Model):
     description = models.TextField(max_length=250)
     link =  models.URLField(max_length=250)
     post_date = models.DateTimeField(auto_now_add=True)
-
+    masterkey = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     @classmethod
     def show_projects(cls):
         return cls.objects.order("post_date")[::1]
     @classmethod
     def search_projects_by_title(cls,search):
-        return cls.objects.filter(name__icontains=search)
+        return cls.objects.filter(title__icontains=search)
 
 class Repositories(models.Model):
     title = models.EmailField(max_length=250)

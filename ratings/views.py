@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
 from ratings.models import Profile, Project, Repositories
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -15,6 +15,9 @@ class ProjectListView(LoginRequiredMixin,ListView):
     context_object_name = "projects"
     ordering = ['-post_date']
 
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = "main/detail.html"
 
 def register(request):
     if request.method == 'POST':
