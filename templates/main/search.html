@@ -1,0 +1,13 @@
+{%extends "main/base.html"%}
+{%block content%}
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        {% for project in projects %}
+        <div class="card-body">
+            <p>{{project.title}}</p>
+            <img src="{{project.image.url}}" width="200" height="121">
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

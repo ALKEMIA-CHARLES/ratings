@@ -15,7 +15,7 @@ class ProjectListView(LoginRequiredMixin,ListView):
     context_object_name = "projects"
     ordering = ['-post_date']
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(LoginRequiredMixin,DetailView):
     model = Project
     template_name = "main/detail.html"
 
@@ -30,6 +30,20 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'main/register.html', context={'form':form})
+
+def search(request):
+    if request.method == "GET":
+        search_term = request.GET.get("search")
+        searched_post = Project.search_projects_by_title(search_term)
+        results = len(searched_post)
+        message = "{}".format(search_term)
+        
+        return render(request, "main/search.html", context={"message":message,
+                                                            "projects":searched_post,
+                                                            "results":results})
+    else:
+        message = "You have not searched for any user"
+        return render(request, "main/index.html", context={"message":message})
 
 @login_required
 def profile(request):

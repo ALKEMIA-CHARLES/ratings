@@ -18,18 +18,18 @@
     <body>
         <nav class="navbar navbar" style="background-color: black;">
             <div class="container">
-                <form action="#" method="GET" class="form-inline">
+                <form action="{% url 'search' %}" method="GET" class="form-inline">
                     <input name='search' class="form-control mr-sm-2" type="search" placeholder="Search"
                         aria-label="Search">
                     <button class="btn btn-secondary" type="submit">Search Projects</button>
                 </form>
                 <div>
-                    <a href="/"> News Feed</a>
+                    <a href="/"> Projects Feed</a>
                 </div>
                 <div>
                     {% if request.user.is_authenticated %}
                     <div>
-                        <a href="{% url  'profile' %}">profile</a>
+                        <a href="{% url  'profile' %}">Profile</a>
                     </div>
                     <div>
                         <a href="#">Upload a Project</a>
