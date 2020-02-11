@@ -38,6 +38,9 @@ class Project(models.Model):
     post_date = models.DateTimeField(auto_now_add=True)
     masterkey = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
+    def get_absolute_url(self):
+        return reverse('project-detail', kwargs={'pk':self.pk})
+
     @classmethod
     def show_projects(cls):
         return cls.objects.order("post_date")[::1]

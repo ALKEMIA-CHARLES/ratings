@@ -19,6 +19,15 @@ class ProjectDetailView(LoginRequiredMixin,DetailView):
     model = Project
     template_name = "main/detail.html"
 
+class ProjectCreateView(LoginRequiredMixin,CreateView):
+    model = Project
+    template_name = "main/projectform.html"
+    fields = ['title', 'image', 'description']
+
+    def form_valid(self, form):
+        form.instance.masterkey = self.request.user
+        return super().form_valid(form)
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
