@@ -1,4 +1,5 @@
 {% extends "main/base.html" %}
+{% load ratings %}
 {%block content%}
 <div class="container">
     {% for project in projects %}
@@ -8,6 +9,7 @@
             <img src="{{project.image.url}}" />
             <p>{{project.post_date}}</p>
             <p>{{project.description}}</p>
+            <p>{% ratings project %}</p>
         </div>
     </div>
     {% endfor %}

@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+# from djangoratings.fields import RatingField
+
 
 
 # Create your models here.
@@ -37,6 +39,7 @@ class Project(models.Model):
     link =  models.URLField(max_length=250)
     post_date = models.DateTimeField(auto_now_add=True)
     masterkey = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    # rating = RatingField(range=5)
 
     def get_absolute_url(self):
         return reverse('project-detail', kwargs={'pk':self.pk})

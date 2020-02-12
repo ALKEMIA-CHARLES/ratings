@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'ratings',
     'pyuploadcare.dj',
     'crispy_forms',
+    'star_ratings',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,6 +122,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+STAR_RATINGS_RERATE=False
+STAR_RATINGS_RANGE=5
+STAR_RATINGS_ANONYMOUS = True
 
 
 # Static files (CSS, JavaScript, Images)

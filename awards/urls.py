@@ -24,6 +24,7 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'', include('ratings.urls')),
     url(r'^register/$', user_views.register, name='register'),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
     url(r'^profile/$', user_views.profile, name='profile'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='main/login.html'), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(template_name='main/logout.html'), name='logout'),
