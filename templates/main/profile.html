@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load crispy_forms_tags %}
+{% load ratings %}
 {% block content %}
 
 <section>
@@ -26,6 +27,23 @@
                 <button class="btn btn-secondary" type="submit">Update</button>
             </div>
         </form>
+    </div>
+</section>
+
+<h2>View and rate my Projects</h2>
+
+<section>
+    <div class="container">
+        {% for repo in repos %}
+        <div class="card">
+            <div class="card-body">
+                <img src="{{repo.image.url}}" style="height: auto; width: 100%;">
+                <p>{{repo.title}}</p>
+                <p>{{repo.description}}</p>
+                <p>{% ratings repo %}</p>
+            </div>
+        </div>
+        {%endfor%}
     </div>
 </section>
 {% endblock content %}

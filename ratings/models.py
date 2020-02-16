@@ -52,7 +52,12 @@ class Project(models.Model):
         return cls.objects.filter(title__icontains=search)
 
 class Repositories(models.Model):
-    title = models.EmailField(max_length=250)
+    title = models.CharField(max_length=250)
     image = models.ImageField(default="deafult.jpg", upload_to='pictures')
     description = models.TextField(max_length=300)
     link = models.URLField(max_length=250)
+    post_date = models.DateTimeField(auto_now_add=True, null=True)
+
+    @classmethod
+    def show_repos(cls):
+        return cls.objects.order("post_date")[::1]

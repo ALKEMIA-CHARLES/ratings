@@ -56,6 +56,7 @@ def search(request):
 
 @login_required
 def profile(request):
+    repos = Repositories.objects.all()[::1]
     if request.method == "POST":
         form = UserUpdateForm(request.POST,request.FILES, instance=request.user.profile)
 
@@ -64,5 +65,6 @@ def profile(request):
             return redirect('profile')
     else:
         form = UserUpdateForm(instance=request.user.profile)
-    return render(request, "main/profile.html", context={"form":form
+    return render(request, "main/profile.html", context={"form":form,
+                                                           "repos":repos 
                                                       })
