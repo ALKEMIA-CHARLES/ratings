@@ -18,7 +18,7 @@
 * Title
 * Image
 * Description
-* Live link to the project site
+
 
 
 ### Authenticated Users can view their profile
