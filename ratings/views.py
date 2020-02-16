@@ -40,6 +40,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'main/register.html', context={'form':form})
 
+@login_required
 def search(request):
     if request.method == "GET":
         search_term = request.GET.get("search")
