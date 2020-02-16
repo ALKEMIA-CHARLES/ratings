@@ -6,6 +6,7 @@
     <div class="card">
         <div class="card-body">
             <p><a href="{% url 'project-detail' project.id %}">{{project.title}}</a></p>
+            <p>{{project.masterkey.username}}</p>
             <img src="{{project.image.url}}" />
             <p>{{project.post_date}}</p>
             <p>{{project.description}}</p>
