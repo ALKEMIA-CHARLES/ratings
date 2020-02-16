@@ -1,16 +1,17 @@
 {% extends "main/base.html" %}
 {% load ratings %}
 {%block content%}
-<div class="container">
+<div class="container" style="background-color: gray;">
     {% for project in projects %}
     <div class="card">
         <div class="card-body">
-            <p><a href="{% url 'project-detail' project.id %}">{{project.title}}</a></p>
-            <p>{{project.masterkey.username}}</p>
+            <p><a href="{% url 'project-detail' project.id %}"
+                    style="  font-family: 'Odibee Sans', cursive; color: darkcyan">{{project.title}}</a></p>
+            <p style="font-family: 'Odibee Sans', cursive;">{{project.masterkey.username}}</p>
             <img src="{{project.image.url}}" />
-            <p>{{project.post_date}}</p>
-            <p>{{project.description}}</p>
-            <p>{% ratings project %}</p>
+            <p style=" font-family: 'Odibee Sans', cursive;">{{project.post_date}}</p>
+            <p style=" font-family: 'Odibee Sans', cursive;">{{project.description}}</p>
+            <p style=" font-family: 'Odibee Sans', cursive;">{% ratings project %}</p>
         </div>
     </div>
     {% endfor %}

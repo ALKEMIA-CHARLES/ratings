@@ -8,9 +8,9 @@
         <div class="media">
             <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
             <div class="media-body">
-                <h1 class="account-heading">{{ user.username }}</h1>
-                <p class="text-secondary">{{ user.profile.bio }}</p>
-                <p class="text-secondary">{{ user.profile.contact }}</p>
+                <h1 class="account-heading" style="  font-family: 'Odibee Sans', cursive;">{{ user.username }}</h1>
+                <p class="text-secondary" style=" font-family: 'Odibee Sans', cursive; ">{{ user.profile.bio }}</p>
+                <p class="text-secondary" style=" font-family: 'Odibee Sans', cursive; ">{{ user.profile.contact }}</p>
             </div>
         </div>
     </div>
@@ -19,18 +19,20 @@
     <div>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom- mb-4">Update Profile Photo, Contact info and Bio</legend>
+            <fieldset class="form-group" style="  font-family: 'Odibee Sans', cursive;">
+                <legend class="border-bottom- mb-4" style="font-family: 'Odibee Sans', cursive;  ">Update Profile Photo,
+                    Contact info and Bio</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-secondary" type="submit">Update</button>
+                <button class="btn btn-secondary" type="submit"
+                    style=" font-family: 'Odibee Sans', cursive; ">Update</button>
             </div>
         </form>
     </div>
 </section>
 
-<h2>View and rate my Projects</h2>
+<h2 style="  font-family: 'Odibee Sans', cursive;">View and rate my Projects</h2>
 
 <section>
     <div class="container">
@@ -38,8 +40,8 @@
         <div class="card">
             <div class="card-body">
                 <img src="{{repo.image.url}}" style="height: auto; width: 100%;">
-                <p>{{repo.title}}</p>
-                <p>{{repo.description}}</p>
+                <p style="  font-family: 'Odibee Sans', cursive;">{{repo.title}}</p>
+                <p style="font-family: 'Odibee Sans', cursive;">{{repo.description}}</p>
                 <p>{% ratings repo %}</p>
             </div>
         </div>

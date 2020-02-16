@@ -4,7 +4,7 @@
 <div class="content-section">
     <form method="POST">
         {% csrf_token %}
-        <fieldset class="form-group">
+        <fieldset class="form-group" style="  font-family: 'Odibee Sans', cursive;  ">
             <legend class="border-bottom- mb-4">Join Today
             </legend>
             {{ form|crispy }}
@@ -15,7 +15,8 @@
     </form>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Already Have an Account? <a class="ml-2" href="{% url 'login' %}">Go Login</a>
+            Already Have an Account? <a class="ml-2" href="{% url 'login' %}"
+                style=" font-family: 'Odibee Sans', cursive;">Go Login</a>
         </small>
     </div>
 </div>
