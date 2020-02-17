@@ -6,7 +6,7 @@
 <section>
     <div class="content-setion">
         <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" width="200" height="121">
             <div class="media-body">
                 <h1 class="account-heading" style="  font-family: 'Odibee Sans', cursive;">{{ user.username }}</h1>
                 <p class="text-secondary" style=" font-family: 'Odibee Sans', cursive; ">{{ user.profile.bio }}</p>
@@ -37,7 +37,7 @@
 <section>
     <div class="container">
         {% for repo in repos %}
-        <div class="card">
+        <div class="card m-3 p-3">
             <div class="card-body">
                 <img src="{{repo.image.url}}" style="height: auto; width: 100%;">
                 <p style="  font-family: 'Odibee Sans', cursive;">{{repo.title}}</p>
