@@ -63,6 +63,11 @@
 
 ### Phone:+254 722 541 165
 
+### Blockers
+
+* No link to live site
+* No API end point. Used normal search functionality
+
 ### MIT License
 
 ### Copyright (c) 2019 Charles Mtawali
