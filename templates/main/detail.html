@@ -1,13 +1,15 @@
 {% extends "main/base.html" %}
+{% load ratings %}
 {% block content %}
 
 <div class="container">
     <div class="card">
         <div class="card-body">
             <p style=" font-family: 'Odibee Sans', cursive; ">{{ object.title }}</p>
-            <img src="{{object.image.url}}">
+            <img class="img-fluid" src="{{object.image.url}}">
             <p style=" font-family: 'Odibee Sans', cursive;">{{ object.post_date }}</p>
             <p style="font-family: 'Odibee Sans', cursive;">{{ object.description }}</p>
+            <p>{% ratings object %}</p>
         </div>
     </div>
 </div>
