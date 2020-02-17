@@ -3,12 +3,12 @@
 {%block content%}
 <div class="container" style="background-color: gray;">
     {% for project in projects %}
-    <div class="card">
+    <div class="card m-3 p-3">
         <div class="card-body">
             <p><a href="{% url 'project-detail' project.id %}"
                     style="  font-family: 'Odibee Sans', cursive; color: darkcyan">{{project.title}}</a></p>
             <p style="font-family: 'Odibee Sans', cursive;">{{project.masterkey.username}}</p>
-            <img src="{{project.image.url}}" />
+            <img src="{{project.image.url}}" class="img-fluid" />
             <p style=" font-family: 'Odibee Sans', cursive;">{{project.post_date}}</p>
             <p style=" font-family: 'Odibee Sans', cursive;">{{project.description}}</p>
             <p style=" font-family: 'Odibee Sans', cursive;">{% ratings project %}</p>
