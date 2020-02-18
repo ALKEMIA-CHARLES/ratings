@@ -1,0 +1,1 @@
+web: gunicorn mb_awards.wsgi --log-file -
