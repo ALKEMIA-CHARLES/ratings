@@ -11,7 +11,7 @@ django-ratings==0.3.7
 django-star-ratings==0.9.1
 gunicorn==20.0.4
 idna==2.8
-Pillow==7.0.0
+Pillow==8.1.1
 python-dateutil==2.8.1
 pytz==2019.3
 pyuploadcare==2.6.0
